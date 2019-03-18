@@ -1,7 +1,33 @@
-#include "MCAL.h"
 #include "stdint.h"
+#include "tm4c123gh6pm.h"
+#include "MCAL.h" 
 
-void DIO_FlipPort(uint8_t port_index, uint8_t pins_mask)
+void DIO_FlipPort (uint8_t port_index, uint8_t pins_mask)
 {
-	port_index ^= pins_mask; //toggle the value of the pins selected by pins_masks in the port selected by port_index
+	//toggle the value of the pins selected by pins_masks in the port selected by port_index
+	
+	if (port_index == 0) // Port A
+	{
+	        GPIO_PORTA_DATA_R ^= pins_mask;
+	}
+	else if (port_index == 1) // Port B
+	{
+		GPIO_PORTB_DATA_R ^= pins_mask;
+	}
+	else if (port_index == 2) // Port C
+	{
+		GPIO_PORTC_DATA_R ^= pins_mask;
+	}
+	else if (port_index == 3) // Port D
+	{
+		GPIO_PORTD_DATA_R ^= pins_mask;
+	}
+	else if (port_index == 4) // Port E
+	{
+		GPIO_PORTE_DATA_R ^= pins_mask;
+	}
+	else if (port_index == 5) // Port f
+	{
+		GPIO_PORTF_DATA_R ^= pins_mask;
+	}
 }
