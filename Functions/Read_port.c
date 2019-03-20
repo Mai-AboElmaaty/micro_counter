@@ -2,7 +2,9 @@
 #include "tm4c123gh6pm.h"
 #include "MCAL.h"
 
-int DIO_ReadPort(uint8_t port_index, uint8_t pins_mask){
+int DIO_ReadPort(uint8_t port_index, uint8_t pins_mask)
+{
+        uint8_t pins_level;
 	if (port_index == 0) // Port A
 	{
 	   pins_level = GPIO_PORTA_DATA_R & pins_mask;
